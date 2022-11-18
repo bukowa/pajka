@@ -1,0 +1,10 @@
+templates:
+  service.yaml:
+    metadata:
+      name: "service-metadata-override"
+    spec:
+      selector:
+        override: spec.selector.matchLabels.override
+      ports:
+        - port: 8080
+          targetPort: 8080
