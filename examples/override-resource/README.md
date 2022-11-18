@@ -1,5 +1,5 @@
 ```bash
-../../generate.sh
-../../generate.sh | kubectl apply --dry-run=server -f -
-../../generate.sh | kubectl apply -f -
+../../pajka.sh
+../../pajka.sh | kubectl apply --dry-run=client -f -
+../../pajka.sh | kubectl apply -f -
 ```
