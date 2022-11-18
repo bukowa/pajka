@@ -1,10 +1,10 @@
 templates:
   service.yaml:
     metadata:
-      name: "service-metadata-override"
+      name: "examples-override-resource-override"
     spec:
       selector:
-        override: spec.selector.matchLabels.override
+        override: examples.override-resource
       ports:
         - port: 8080
           targetPort: 8080
