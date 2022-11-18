@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "examples-basic-overriden"
+  labels:
+    my.first.label: "true"
+    new.label: new
+spec:
+  selector:
+    matchLabels:
+      override: "examples.basic"
+  template:
+    metadata:
+      labels:
+        override: "examples.basic"
+    spec:
+      containers:
+        - name: busybox
+          image: busybox
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              sleep infinity
+        - name: "overriden-name"
+          image: bukowa/http-headers:1.2.0
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /readinessProbe
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /livenessProbe
+          args:
+            - |
+              echo hello world &&
+              sleep infinity
+      hostAliases:
+        - hostnames:
+            - "local2"
+          ip: 127.0.0.1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "examples-basic-overriden"
+spec:
+  selector:
+    override: "examples.basic"
+  ports:
+    - port: 8080
+      targetPort: 8080
+---
