@@ -9,10 +9,10 @@ labels: &labels
 templates:
   service.yaml:
     metadata:
-      name: "service-metadata-name"
+      name: "examples-basic-overriden"
   deployment.yaml:
     metadata:
-      name: "metadata.name.override"
+      name: "examples-basic-overriden"
       labels:
         <<: *labels
     spec:

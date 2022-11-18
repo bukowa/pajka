@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: "service.metadata.name.invalid"
+  name: "examples.basic"
 spec:
   selector:
-    override: spec.selector.matchLabels.override
+    override: "examples.basic"
   ports:
     - port: 8080
       targetPort: 8080

@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "metadata.name"
+  name: "examples.basic"
   labels:
     basic.label: "false"
 spec:
   selector:
     matchLabels:
-      override: "spec.selector.matchLabels.override"
+      override: "examples.basic"
   template:
     metadata:
       labels:
-        override: "spec.selector.matchLabels.override"
+        override: "examples.basic"
     spec:
       containers:
         - name: busybox
